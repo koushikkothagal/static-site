@@ -1,0 +1,8 @@
+<div class="panel panel-default topic-tile card clickable <%= topic.code %>" href="/topics/<%= topic.code %>">
+    <div class="panel-heading topic-bg">
+        <p class="side-heading pull-right"><%= topic.numberOfCourses %> courses</p>
+        <h1 class="panel-title"><i class="fa fa-th-large"></i>Topic</h1></div>
+    <div class="panel-body">
+        <h4 class="title topic-title"><%= topic.name %></h4>
+        <p class="desc topic-desc"><%= topic.desc %></p><a id="view-courses" href="/topics/<%= topic.code %>" class="jb-btn">View Courses</a></div>
+</div>

@@ -1,0 +1,213 @@
+/**
+ *  If you want to override some bootstrap variables, you have to change values here.
+ *  The list of variables are listed here bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss
+ */
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin-top: 80px;
+  padding: 10px;
+  background-color: #EDEFF0;
+  font-family: 'Varela Round', sans-serif;
+  color: #4B5B5E;
+  font-size: 1.6rem;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  letter-spacing: 0.1px;
+  line-height: 1.5em;
+}
+
+a {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.shadow, .card {
+  box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.75);
+}
+
+.padded {
+  padding: 10px 20px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.border-right {
+  border-right: 1px solid #CBDBDE;
+}
+
+.border-left {
+  border-left: 1px solid #CBDBDE;
+}
+
+.faded {
+  opacity: 0.4;
+}
+
+.jb-btn {
+  cursor: pointer;
+  color: #4B5B5E;
+  padding: 10px 25px;
+  border: solid #4B5B5E 1px;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.jb-btn:hover {
+  background: #4B5B5E;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.card-no-shadow, .card {
+  background-color: #FFF;
+  color: #7F8A94;
+  margin-bottom: 40px;
+  min-height: 40px;
+}
+
+.card-no-shadow .panel-heading, .card .panel-heading {
+  padding: 18px;
+}
+
+.card-no-shadow .panel-title, .card .panel-title {
+  font-size: 17px;
+}
+
+.card-no-shadow .panel-body, .card .panel-body {
+  padding: 20px 30px;
+}
+
+.card-no-shadow .title, .card .title {
+  margin-bottom: 10px;
+  color: #384047;
+}
+
+.card-no-shadow .topic, .card .topic {
+  font-weight: 700;
+  margin: 15px 0px;
+  font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, .bold-text {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: #384047;
+  letter-spacing: 0.2px;
+}
+
+i.fa {
+  margin-right: 7px;
+}
+
+.heading-row {
+  margin-bottom: 30px;
+}
+
+/* Start textbox */
+.text-box {
+  padding: 3px;
+  font-size: 16px;
+  border-width: 0px;
+  border-color: #cccccc;
+  border-bottom-width: 2px;
+}
+
+.text-box:focus {
+  outline: none;
+}
+
+/* End textbox */
+/* Start checkbox */
+input.combo, input.check {
+  position: absolute;
+  left: -9999px;
+}
+
+label.combo, label.check {
+  display: block;
+  font-weight: 400;
+  position: relative;
+  margin: 3px 0;
+  padding: 5px 30px 5px 25px;
+  border: 3px solid #FFF;
+  border-radius: 100px;
+  color: #333333;
+  background-color: #FFF;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, .2); */
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  /* transition: background-color .2s, box-shadow .2s; */
+}
+
+label.combo::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0px;
+  width: 16px;
+  border: 2px solid #3498db;
+  border-radius: 100px;
+  -webkit-transition: background-color .2s;
+          transition: background-color .2s;
+}
+
+label.check::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0px;
+  width: 16px;
+  border: 2px solid #3498db;
+  border-radius: 0px;
+  /* transition: background-color .2s; */
+}
+
+label.combo:hover, input.combo:focus + label.combo,
+label.check:hover, input.check:focus + label.check {
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, .6); */
+}
+
+input.combo:checked + label.combo {
+  /* color: #C0392B; */
+}
+
+input.combo:checked + label.combo::before,
+input.check:checked + label.check::before {
+  background-color: #34495e;
+}
+
+/* End checkbox */
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */

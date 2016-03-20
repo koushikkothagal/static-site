@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <%- include partials/head.ejs %>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <% var thisTopic = s.topicMap[topic] %>
+                <% var prevUrl = '/topics/' + topic %>
+                    <% var prevName = thisTopic.name %>
+                        <%- include partials/navbar.ejs %>
+        </div>
+    </div>
+    <div class="container-fluid <%= topic %>" style="background-color: #FFF; margin: -30px -10px 0; padding: 50px 10px 20px">
+        <div class="container courseinfo-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5 course-image"><img class="img-responsive" alt="Course Image" src="/assets/images/<%= code %>.jpg"></div>
+                <div class="col-xs-12 col-sm-7 course-details">
+                    <h2 class="course-title" itemprop="title"><%= name %></h2>
+                    <h4 class="topic topic-color clickable">
+                            <a class="topic topic-color clickable" href="/topics/<%= topic %>"><%= thisTopic.name %></a>
+                        </h4>
+                    <p class="course-description">
+                        <%= desc %>
+                    </p>
+                    <!-- TODO Dynamic -->
+                    <a id="start-course" class="btn-topic" href="/courses/spring_core/lessons/Understanding-Dependency-Injection">Start Course</a>
+                    <!-- TODO Dynamic -->
+                    <p class="course-description course-covers">This course covers:</p>
+                    <ul class="list-square fa-ul">
+                        <% for(var i=0; i<objectives.length; i++) {%>
+                            <li>
+                                <i class="fa-li fa fa-check topic-color"></i>
+                                <%= objectives[i] %>
+                            </li>
+                            <% } %>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container details-section <%= topic %>">
+        <div class="row">
+            <div class="col-md-9 unit-section">
+                <!-- start unit repeat -->
+                <% for(var i=0; i<units.length; i++) {%>
+                    <% var thisUnit = units[i] %>
+                        <div class="unit-container">
+                            <div class="media unit-tile card topic-bg">
+                                <div class="media-left unit-block">
+                                    <p class="unit-text text-center">UNIT</p>
+                                    <p class="unit-number text-center">
+                                        <%= '0' + (i+1) %>
+                                    </p>
+                                </div>
+                                <div class="media-body unit-body">
+                                    <h4 class="media-heading unit-heading"><%= thisUnit.unitName %></h4>
+                                    <p class="unit-description">
+                                        <%= thisUnit.unitDescription %>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- start lesson repeat -->
+                            <% for(var j=0; j<thisUnit.lessons.length; j++) {%>
+                                <% var thisLesson = thisUnit.lessons[j] %>
+                                    <a class="lesson-link" href="<%= thisLesson.path %>">
+                                        <div class="toc-lesson">
+                                            <h5 class="lesson-name">
+                                            <% if (!thisLesson.quiz) { %>
+                                                <i class="fa fa-play-circle"></i>
+                                                
+                                            <% } %>
+                                            <% if (thisLesson.quiz) { %>
+                                                <i class="fa fa-question-circle"></i>
+                                                
+                                            <% } %>
+                                                
+                                                &nbsp;<%= thisLesson.name %> 
+                                                <span class="pull-right">14 minutes</span>
+                                                
+                                        </h5></div>
+                                    </a>
+                                    <% } %>
+                                        <!-- end lesson repeat -->
+
+                        </div>
+                        <% } %>
+                            <!-- end unit repeat -->
+
+            </div>
+            <div class="col-md-3">
+                <div class="padded">
+                    <h4>Downloads</h4>
+                    <hr>
+                    <% if (sourceCode) { %>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="<%= sourceCode %>"><span class="fa fa-3x fa-file-archive-o topic-color" aria-hidden="true"></span></a>
+                        </div>
+                        <div class="media-body">
+                            <h5 class="media-heading">Project source code</h5>
+                            <p>.zip file</p>
+                        </div>
+                    </div>
+                    <% } %>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include partials/footer.ejs %>
+
+        <%- include partials/scripts.ejs %>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Java Brains</h3>
+        <p class="footer-links"><a href="/">Home</a> · <a href="/topics">Topics</a> · <a href="/courses">Courses</a> · <a href="#" ng-click="vm.openLoginModal()">Login</a>            · <a href="#" ng-click="vm.openSignUpModal()">Sign Up</a></p>
+        <p class="footer-company-name">Java Brains is the work of Koushik Kothagal.</p>
+        <div class="footer-icons"><a target="_blank" href="http://www.linkedin.com/in/koushiksrinivas"><i class="fa fa-linkedin"></i></a> <a target="_blank"
+            href="http://www.youtube.com/koushks"><i class="fa fa-youtube"></i></a>
+            <a target="_blank" href="https://www.facebook.com/javabrains"><i class="fa fa-facebook"></i></a> <a target="_blank" href="https://twitter.com/Java_Brains"><i class="fa fa-twitter"></i></a>            <a target="_blank" href="https://plus.google.com/101241060481722039118/posts"><i class="fa fa-google-plus"></i></a>            <a target="_blank" href="https://github.com/koushikkothagal"><i class="fa fa-github"></i></a></div>
+    </div>
+    <div class="footer-right">
+        <p>Contact</p>
+        <div class="form-box">
+            <!-- ngIf: vm.submitted -->
+            <input type="text" name="email" ng-model="vm.message.email" placeholder="Email" class="ng-pristine ng-untouched ng-valid">
+            <textarea name="message" ng-model="vm.message.body" placeholder="Message" class="ng-pristine ng-untouched ng-valid"></textarea>
+            <button ng-click="vm.submitContact()">Send</button>
+        </div>
+    </div>
+</footer>

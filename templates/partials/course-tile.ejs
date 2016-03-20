@@ -1,0 +1,25 @@
+<div class="panel panel-default course-tile card clickable <%= course.topic %>">
+    <div class="panel-heading topic-bg">
+        <h1 class="panel-title"><i class="fa fa-book"></i>Course <span class="pull-right">510 points</span></h1></div>
+    <div class="panel-body" href="/courses/<%= course.code %>">
+        <div class="media">
+            <div class="media-left course-thumbnail">
+            <a href="/courses/<%= course.code %>">
+            <img class="media-object" width="280px" alt="..." src="<%= course.img %>">
+            </a>
+            </div>
+            <div class="media-body">
+                <a href="/courses/<%= course.code %>">
+                <h4 class="title course-title"><%= course.name %></h4>
+                </a>
+                <a href="/topics/<%= course.topic %>"><h5 class="topic topic-color"> <%= s.topicMap[course.topic].name %></h5></a>
+                <p class="tile-description"><%= course.desc %></p>
+                <div class="labels">
+                    <% for(var i=0; i<course.tags.length; i++) {%>
+                        <span class="label label-default" style="margin: 3px; padding:5px"><%= course.tags[i] %></span>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

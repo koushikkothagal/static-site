@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <%- include partials/head.ejs %>
+</head>
+
+<body>
+    <% var topic = s.topicMap[code]; %>
+        <div class="container">
+            <div class="row">
+                <% var prevUrl = '/topics' %>
+                <% var prevName = 'Topics' %>
+                <%- include partials/navbar.ejs %>
+            </div>
+            <div class="row heading-row">
+                <h3><%= topic.name %> Courses</h3>
+                <p>Browse available courses to start your learning journey.</p>
+            </div>
+            <div class="row">
+                <!-- Start Loop -->
+                <% for(var i=0; i<topic.courses.length; i++) {%>
+                    <div class="col-sm-12">
+                        <% var course = topic.courses[i]; %>
+                        <%- include partials/course-tile.ejs %>
+                    </div>
+                 <% } %>
+                 <!-- End Loop -->
+            </div>
+        </div>
+
+
+        <%- include partials/footer.ejs %>
+
+            <%- include partials/scripts.ejs %>
+</body>
+
+</html>

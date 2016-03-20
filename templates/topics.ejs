@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <%- include partials/head.ejs %>
+</head>
+
+<body>
+    <div class="container ng-scope">
+        <div class="row">
+            <% var prevUrl = '/' %>
+            <% var prevName = 'Home' %>
+            <%- include partials/navbar.ejs %>
+        </div>
+        <div class="row heading-row">
+            <h3>Topics</h3>
+            <p>Browse available topics to start your learning journey.</p>
+        </div>
+        <div class="row">
+            <!-- Start Loop -->
+            <% for(var i=0; i<s.topics.length; i++) {%>
+            <div class="col-md-4">
+                <% var topic = s.topics[i]; %>
+                <%- include partials/topic-tile.ejs %>
+            </div>
+            <% } %>
+            <!-- End Loop -->
+        </div>
+    </div>
+
+
+    <%- include partials/footer.ejs %>
+
+    <%- include partials/scripts.ejs %>
+</body>
+
+</html>

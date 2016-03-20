@@ -1,0 +1,26 @@
+<nav id="navbar" class="navbar navbar-fixed-top card">
+    <div class="container" style="height:100%">
+        <div class="navbar-header">
+        <%if (!prevUrl) { %>
+        <img width="120px" src="/assets/images/logo.png" style="margin-top: 5px;">
+        <% } %>
+        
+        <%if (prevUrl) { %>
+            <a class="navbar-brand bold-text" href="<%= prevUrl %>">
+            <i class="fa fa-arrow-left"></i> 
+            <span><%= prevName %></span>
+            </a>
+        <% } %>
+        
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="/topics">Topics</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li ng-if="!vm.currentUser" class="ng-scope"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
+                <li ng-if="!vm.currentUser" id="sign-up" class="ng-scope"><a ng-click="vm.openSignUpModal()" class="shadow bold-text clickable">Sign up</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
