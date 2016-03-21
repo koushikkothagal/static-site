@@ -19,9 +19,14 @@ function plugin() {
                 data.lessonnumber = Number(pathDetails[3]);
                 data.title = pathDetails[4];
                 data.extension = pathDetails[5];
-                if (!data.quiz) {
+                if (!data.quiz && data.quiz !== 'true') {
                     data.template = 'lesson.ejs';    
                 }
+                if (data.quizContent) {
+                    data.duration = data.quizContent.length;
+                }
+                data.description = data.description || '';
+                data.youtube = data.youtube || ''; 
                 var out =  'courses/' + data.courseCode + '/lessons/' + pathDetails[4] + '/index.html';
                 data.path = '/courses/' + data.courseCode + '/lessons/' + pathDetails[4]; // Make it start from web root and skip index.html (used for URLs) 
                 delete files[file];

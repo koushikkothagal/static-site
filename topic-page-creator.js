@@ -51,12 +51,15 @@ function plugin() {
             if (data.template === 'course.ejs') {
                 for (var i = 0; i < data.units.length; i++) {
                     try {
-                    data.units[i].lessons = allData.courses[data.code].units[i];
+                    data.units[i].lessons = _.sortBy(allData.courses[data.code].units[i], 'lessonnumber');
                     }
                     catch(e) {
                         console.log(e);
                     }
-                    // data.units[i].lessons = _.sortBy(data.units[i].lessons, 'lessonnumber');
+                    if (data.units[i].lessons) {
+                        // data.units[i].lessons.forEach(function(obj) { console.log(obj.lessonnumber + ' ' + obj.title)});
+                    }
+                    data.units[i].lessons = _.sortBy(data.units[i].lessons, 'lessonnumber');
                 }
             }
             if (data.template === 'lesson.ejs' || data.template === 'quiz.ejs') {

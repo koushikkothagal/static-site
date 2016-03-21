@@ -13,7 +13,8 @@ var metalsmith = require('metalsmith'),
     defineMetadata = require('metalsmith-define'),
     topicPageCreator = require('./topic-page-creator'),
     lessonProcessor = require('./lesson-processor'),
-    SiteData = require('./data')
+    SiteData = require('./data'),
+    _ = require('lodash')
     ;
 
 var siteData = new SiteData();
@@ -59,10 +60,45 @@ var siteBuild = metalsmith(__dirname)
     .use(templates({
         engine: 'ejs',
         s: siteData,
-        proc: function(obj) {
-            // console.log('****************************************');
-            // console.log(obj);
-            // console.log('****************************************');
+        util: {
+            sort: function(list, prop) {
+                list = _.sortBy(list, prop);
+                return list;
+            },
+            secondsToTime: function (secs) {
+                console.log(secs);
+                if (isNaN(Number(secs))) {
+                    return secs;
+                }
+                var durationString = '';
+                if (secs < 60) {
+                    return secs + ' seconds ';
+                }
+                var hours = Math.floor(secs / (60 * 60));
+
+                var divisor_for_minutes = secs % (60 * 60);
+                var minutes = Math.floor(divisor_for_minutes / 60);
+
+                if (hours) {
+                    durationString = hours + ' hours ';
+                }
+                if (minutes && minutes !== 1) {
+                    durationString = minutes + ' minutes ';
+                }
+                if (minutes && minutes === 1) {
+                    durationString = minutes + ' minute ';
+                }
+
+                return durationString.trim();
+            }
+
+        },
+        print: function(o) {
+            console.log('in print');
+            if (o) {
+                        
+                        o.forEach(function(obj) { console.log(obj.lessonnumber + ' ' + obj.title)});
+                    }
         }
     }))
     .use(sass({

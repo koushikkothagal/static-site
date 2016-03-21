@@ -9,9 +9,9 @@
     <div class="container">
         <div class="row">
             <% var thisTopic = s.topicMap[topic] %>
-                <% var prevUrl = '/topics/' + topic %>
-                    <% var prevName = thisTopic.name %>
-                        <%- include partials/navbar.ejs %>
+            <% var prevUrl = '/topics/' + topic %>
+            <% var prevName = thisTopic.name %>
+            <%- include partials/navbar.ejs %>
         </div>
     </div>
     <div class="container-fluid <%= topic %>" style="background-color: #FFF; margin: -30px -10px 0; padding: 50px 10px 20px">
@@ -80,7 +80,7 @@
                                             <% } %>
                                                 
                                                 &nbsp;<%= thisLesson.name %> 
-                                                <span class="pull-right">14 minutes</span>
+                                                <span class="pull-right"><%= util.secondsToTime(thisLesson.duration) %></span>
                                                 
                                         </h5></div>
                                     </a>
