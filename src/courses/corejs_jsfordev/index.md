@@ -5,18 +5,18 @@ desc: "This course is an introduction to the Javascript programming language. Th
 img: "https://i.ytimg.com/vi/al7bRZzz4oU/mqdefault.jpg"
 level: "Beginner"
 name: "JavaScript for Developers"
-objectives: 
+objectives:
   - "Learning about JavaScript and its features"
   - "Understanding the type system and working with data and variables"
   - "Working with objects and functions"
   - "Understanding some of the unique concepts in JavaScript"
 slNo: 13
-tags: 
+tags:
   - "JavaScript"
   - "Core"
 topic: "corejs"
-sourceCode: ""
-units: 
+sourceCode: 
+units:
   -
     unitName: "Introduction"
     unitDescription: "In this unit, you'll get introduced to the course. You'll learn about the important facets of JavaScript and the language ecosystem. You'll learn about the history of the language. I'll also share some of my thoughts on learning JavaScript."

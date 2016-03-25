@@ -5,6 +5,7 @@ desc: "This course covers more advanced concepts of JAX-RS. You will learn some 
 img: "https://i.ytimg.com/vi/xkKcdK1u95s/mqdefault.jpg"
 level: "Advanced"
 name: "Advanced JAX-RS"
+title: "Advanced JAX-RS - Java Brains"
 objectives:
   - Bootstrapping JAX-RS applications with Application class
   - Understanding resource life cycles

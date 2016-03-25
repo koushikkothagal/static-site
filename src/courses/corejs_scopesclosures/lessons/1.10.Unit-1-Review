@@ -1,0 +1,69 @@
+---
+description: "Review your knowledge by answering these questions."
+title: "Review"
+type: quiz
+durationText: 2 questions
+quizContent: 
+  - answers: 
+      - content: To make the variables readonly
+      - content: To prevent variables from being null
+      - content: To protect variables from being accessed in other places in the code
+      - content: To make the code easier to read
+    correctAnswer: 2
+    question: Which of the following is a good reason for establishing scopes for your variables?
+  - answers: 
+      - content: "A {} block creates a new scope"
+      - content: "Every JavaScript file creates a new scope"
+      - content: "Every function creates a new scope"
+      - content: "All of the above"
+    correctAnswer: 2
+    question: Which of the following leads to a creation of a new scope in JavaScript?
+  - answers: 
+      - content: "10"
+      - content: undefined
+      - content: a 
+      - content: An error occurs
+    correctAnswer: 0
+    question: |
+          What gets printed when the following code executes?
+          <pre>
+          <code>var a = 10; 
+          function print() {
+              console.log(a);
+          }
+          print();</code></pre>
+  - answers: 
+      - content: "10"
+      - content: undefined
+      - content: a 
+      - content: An error occurs
+    correctAnswer: 3
+    question: |
+          What gets printed when the following code executes?
+          <pre>
+          <code>var b = 10; 
+          function print() {
+              console.log(a);
+          }
+          print();</code></pre>            
+  - answers: 
+      - content: Variable a gets created in global scope
+      - content: Variable a gets created in function setValue scope
+      - content: No variable gets created 
+      - content: An error occurs
+    correctAnswer: 0
+    question: |
+          What happens when the following code executes?
+          <pre>
+          <code>function setValue() {
+              a = 10;
+          }
+          setValue();</code></pre>            
+  - answers: 
+      - content: Immediately Implemented Function Expression
+      - content: Intermediate Interface For Execution
+      - content: Immediately Invoked Function Expression
+      - content: None of the above
+    correctAnswer: 2
+    question: What does IIFE stand for?
+---

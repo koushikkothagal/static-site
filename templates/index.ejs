@@ -2,14 +2,14 @@
     <head>
         <%- include partials/head.ejs %>
     </head>
-    <body>
-        
+    <body ng-app="javabrains">
+
 <style>
   body {
     padding: 0;
     margin: 0;
   }
-  
+
   #headerwrap {
     background: url(/assets/images/banner.svg) no-repeat right top;
     margin-top: 0px;
@@ -28,33 +28,33 @@
     -o-background-size: cover;
     background-size: cover;
   }
-  
+
   .home-signup-form *::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
     color: #FFF !important;
   }
-  
+
   .home-signup-form *:-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: #FFF !important;
     opacity: 0.8;
   }
-  
+
   .home-signup-form *::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: #FFF !important;
     opacity: 0.8;
   }
-  
+
   .home-signup-form *:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #FFF !important;
   }
-  
+
   .main-thumbnails .caption {
     margin-top: 30px;
   }
-  
+
   .main-thumbnails p.lead {
     font-size: 18px;
     line-height: 30px;
@@ -63,9 +63,9 @@
   }
 </style>
 
-<div class="container-fluid" style="background-color: #4C8EB4; height: 802px; padding: 0; margin: 0">
+<div class="container-fluid" style="background-color: #4C8EB4; height: 802px; padding: 0; margin: 0" ng-controller="MainController as main">
   <div style="position: relative; max-width: 1700px; margin: auto">
-    <!-- 
+    <!--
   <div id="headerwrap">
     <h1>Test</h1>
   </div>
@@ -116,19 +116,19 @@
       <p><a class="btn btn-primary btn-lg jb-btn" style="color: #FFF; border-color: #FFF; font-size: 20px;background-color: rgba(76, 174, 80, 0.65)"
         href="#" ng-click="main.signup()" role="button">Start learning!</a></p>
         <p style="font-size: 15px;margin-top: 20px;"><a href="#" ng-click="main.openLoginModal()" style="color: #FFF;">Already have an account? Login here</a><br/></p>
-        
-    
-    
+
+
+
     </div>
 
     <!-- TODO
     <div id="otherlinks" style="position: absolute; top: 20px; right: 40px;">
     <a href="#" ng-href="/courses" style="color: #FFF; margin-right: 15px;">Courses</a>
-    
-    <a href="#" style="color: #FFF; margin-right: 15px;">About</a> 
-    
-    
-    </div>    
+
+    <a href="#" style="color: #FFF; margin-right: 15px;">About</a>
+
+
+    </div>
      -->
 
     <img src="/assets/images/banner.svg" class="pull-right" alt="Responsive image">
@@ -227,24 +227,24 @@
       </div>
     </div>
     <div class="row text-left">
-      
+
         <!-- Start Loop -->
         <% for(var i=0; i<popularCourses.length; i++) {%>
-            <div class="col-sm-12">  
+            <div class="col-sm-12">
             <% var course = s.courseMap[popularCourses[i]]; %>
             <%- include partials/course-tile.ejs %>
         </div>
         <% } %>
         <!-- End Loop -->
-      
+
     </div>
 
   </div>
 </div>
-        
-        
+
+
         <%- include partials/footer.ejs %>
-        
+
         <%- include partials/scripts.ejs %>
      </body>
 </html>

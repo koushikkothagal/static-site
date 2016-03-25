@@ -23,7 +23,7 @@ function plugin() {
                     data.template = 'lesson.ejs';    
                 }
                 if (data.quizContent) {
-                    data.duration = data.quizContent.length;
+                    data.duration = data.quizContent.length + ' questions';
                 }
                 data.description = data.description || '';
                 data.youtube = data.youtube || ''; 

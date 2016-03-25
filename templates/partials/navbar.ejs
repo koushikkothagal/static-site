@@ -1,25 +1,75 @@
-<nav id="navbar" class="navbar navbar-fixed-top card">
+<nav id="navbar" class="navbar navbar-fixed-top card" ng-controller="NavbarController as navbar">
     <div class="container" style="height:100%">
         <div class="navbar-header">
-        <%if (!prevUrl) { %>
-        <img width="120px" src="/assets/images/logo.png" style="margin-top: 5px;">
-        <% } %>
-        
-        <%if (prevUrl) { %>
-            <a class="navbar-brand bold-text" href="<%= prevUrl %>">
-            <i class="fa fa-arrow-left"></i> 
-            <span><%= prevName %></span>
-            </a>
-        <% } %>
-        
+            <%if (!prevUrl) { %>
+                <img width="120px" src="/assets/images/logo.png" style="margin-top: 5px;">
+                <% } %>
+
+                    <%if (prevUrl) { %>
+                        <a class="navbar-brand bold-text" href="<%= prevUrl %>">
+                            <i class="fa fa-arrow-left"></i>
+                            <span><%= prevName %></span>
+                        </a>
+                        <% } %>
+
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/">Home</a></li>
                 <li><a href="/topics">Topics</a></li>
                 <li><a href="/courses">Courses</a></li>
-                <li ng-if="!vm.currentUser" class="ng-scope"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
-                <li ng-if="!vm.currentUser" id="sign-up" class="ng-scope"><a ng-click="vm.openSignUpModal()" class="shadow bold-text clickable">Sign up</a></li>
+                <li ng-if="!navbar.currentUser" class="ng-scope"><a class="clickable" ng-click="navbar.openLoginModal()">Log in</a></li>
+                <li ng-if="!navbar.currentUser" id="sign-up" class="ng-scope"><a ng-click="navbar.openSignUpModal()" class="shadow bold-text clickable">Sign up</a></li>
+
+
+
+
+
+                <li id="profile-dropdown" ng-if="navbar.currentUser" class="dropdown">
+
+
+
+
+
+
+
+
+    <!-- Split button -->
+    <div class="btn-group" uib-dropdown>
+      <button id="profile-button" type="button" class="btn btn-default" ng-bind="navbar.currentUser.fullName"></button>
+      <button type="button" class="btn btn-default" uib-dropdown-toggle>
+        <span class="fa fa-caret-down"></span>
+        <span class="sr-only">Profile</span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="split-button">
+        <li role="menuitem"><a ng-href="/profile">Your Profile</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a class="clickable" ng-click="navbar.logout()">Logout</a></li>
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+                </li>
+
+
+
+
+
+
+
+
+
+
+
             </ul>
         </div>
     </div>

@@ -1,0 +1,129 @@
+
+$spring: #5CB860;
+$javaee: lighten(#DD3C43, 10%);
+$buildsys: lighten(#e74c3c, 15%);
+$corejs: lighten(#533737, 15%); 
+$struts2: lighten(#2980b9, 15%);
+$hibernate: darken(#f1c40f, 5%);
+$servlets: lighten(#34495e, 15%);
+$angularjs: lighten(#336E7B, 1%);
+
+
+.spring .topic-color {
+	color: $spring;
+}
+
+.javaee .topic-color {
+	color: $javaee;
+}
+
+.buildsys .topic-color {
+	color: $buildsys;
+}
+
+.corejs .topic-color {
+	color: $corejs;
+}
+
+.struts2 .topic-color {
+	color: $struts2;
+}
+
+.hibernate .topic-color {
+	color: $hibernate;
+}
+
+.servlets .topic-color {
+	color: $servlets;
+}
+
+.angularjs .topic-color {
+	color: $angularjs;
+}
+
+.spring .topic-bg, .bg-spring {
+	background-color: $spring !important;
+}
+
+.javaee .topic-bg, .bg-javaee {
+	background-color: $javaee !important;
+}
+
+.buildsys .topic-bg, .bg-buildsys {
+	background-color: $buildsys !important;
+}
+
+.corejs .topic-bg, .bg-corejs {
+	background-color: $corejs !important;
+}
+
+.struts2 .topic-bg, .bg-struts2 {
+	background-color: $struts2 !important;
+}
+
+.hibernate .topic-bg, .bg-hibernate {
+	background-color: $hibernate !important;
+}
+
+.servlets .topic-bg, .bg-servlets {
+	background-color: $servlets !important;
+}
+
+.angularjs .topic-bg, .bg-angularjs {
+	background-color: $angularjs !important;
+}
+
+.btn-topic {
+	@extend .jb-btn;
+    font-size: 1.8rem;
+    font-family: "Nunito", sans-serif;
+	border-radius: 5px !important;
+	color: #FFF;
+}
+
+.spring .btn-topic {
+	@extend .btn-topic;
+	background-color: $spring !important;
+	border-color: $spring !important;
+}
+
+.javaee .btn-topic {
+	@extend .btn-topic;
+	background-color: $javaee !important;
+	border-color: $javaee !important;
+}
+
+.buildsys .btn-topic {
+	@extend .btn-topic;
+	background-color: $buildsys !important;
+	border-color: $buildsys !important;
+}
+.corejs .btn-topic {
+	@extend .btn-topic;
+	background-color: $corejs !important;
+	border-color: $corejs !important;
+}
+
+.struts2 .btn-topic {
+	@extend .btn-topic;
+	background-color: $struts2 !important;
+	border-color: $struts2 !important;
+}
+
+.hibernate .btn-topic {
+	@extend .btn-topic;
+	background-color: $hibernate !important;
+	border-color: $hibernate !important;
+}
+
+.servlets .btn-topic {
+	@extend .btn-topic;
+	background-color: $servlets !important;
+	border-color: $servlets !important;
+}
+
+.angularjs .btn-topic {
+	@extend .btn-topic;
+	background-color: $angularjs !important;
+	border-color: $angularjs !important;
+}

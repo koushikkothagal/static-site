@@ -3,10 +3,10 @@
 <head>
     <%- include partials/head.ejs %>
 </head>
-
-<body>
-    <% var thisCourse = s.courseMap[courseCode] %>
-    <% var thisTopic = s.topicMap[thisCourse.topic] %>
+<% var thisCourse = s.courseMap[courseCode] %>
+<% var thisTopic = s.topicMap[thisCourse.topic] %>
+<body ng-app="javabrains" ng-controller="LessonController as lesson" ng-init="lesson.init('<%= courseCode %>', '<%= title %>')">
+    
         <div class="<%= thisCourse.topic %>">
             <div class="container resize-offset">
                 <div class="row">
@@ -28,7 +28,7 @@
                     <span class="fa-stack">
                         <% if (lesson.path === path) { %>
                         <% bigAndFaded = '' %>
-                        <i ng-if="alesson.current" class="fa fa-stack-2x fa-circle-thin ng-scope" style="color: rgb(255, 255, 255);"></i>
+                        <i class="fa fa-stack-2x fa-circle-thin" style="color: rgb(255, 255, 255);"></i>
                         <% } %>
                         
                         
@@ -70,20 +70,23 @@
                     <div class="container full-height" style="padding: 15px 25px;width:90%;">
                         <div class="row head-row full-height">
                             <div class="col-md-8 border-right full-height">
-                                <!-- ngIf: lesson.info.prev -->
-                                <h3><span class="slNo topic-color"><%= unitnumber %>.<%= lessonnumber %></span> <span class="lesson-title" ng-bind="lesson.info.title"><%= name %></span></h3>
+                                
+                                <h3><span class="slNo topic-color"><%= unitnumber %>.<%= lessonnumber %></span> <span class="lesson-title"><%= name %></span></h3>
                                 <p><%= description %></p>
                             </div>
                             <div class="col-md-4 padded">
-                                
+                                <div ng-if="!lesson.user.getCurrentUser()" class="ng-scope">
+                                    <p>Your progress is not being saved.</p>
+                                    <p><a href="#" ng-click="lesson.openSignupModal()">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
+                                </div>
                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ngIf: lesson.info.type === 'video' -->
-            <div class="ng-scope" ng-if="lesson.info.type === 'video'">
+            
+            <div>
                 <div class="embed-container shadow" style="max-width: 1320px;margin: auto;margin-bottom: 40px;">
                     <iframe src="//www.youtube.com/embed/<%= youtube %>?rel=0&amp;showinfo=0&amp;fs=1&amp;theme=light&amp;modestbranding=1"
                     id="youtube-player" allowfullscreen="" frameborder="0"></iframe>
@@ -95,13 +98,12 @@
                             <%= contents %>
                         </div>
                         <div class="col-md-4 padded border-left">
-                            <!-- ngIf: lesson.info.sourceCode -->
+                            <!-- TODO: Lesson source code -->
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- end ngIf: lesson.info.type === 'video' -->
-            <!-- ngIf: lesson.info.type === 'quiz' -->
+            
         </div>
     
 

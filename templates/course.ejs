@@ -4,7 +4,7 @@
     <%- include partials/head.ejs %>
 </head>
 
-<body>
+<body ng-app="javabrains" ng-controller="CourseController as course" ng-init="course.getUserData('<%= code %>')" ng-cloak>
 
     <div class="container">
         <div class="row">
@@ -26,9 +26,11 @@
                     <p class="course-description">
                         <%= desc %>
                     </p>
-                    <!-- TODO Dynamic -->
-                    <a id="start-course" class="btn-topic" href="/courses/spring_core/lessons/Understanding-Dependency-Injection">Start Course</a>
-                    <!-- TODO Dynamic -->
+                    
+                    <span ng-init="course.resumeUrl = '<%= units[0].lessons[0].path %>'"></span>
+                    <a id="start-course" class="btn-topic" href="<%= units[0].lessons[0].path %>" ng-bind="course.btnText" ng-href="{{course.resumeUrl}}">Start Course</a>
+                    
+                    
                     <p class="course-description course-covers">This course covers:</p>
                     <ul class="list-square fa-ul">
                         <% for(var i=0; i<objectives.length; i++) {%>
@@ -71,13 +73,15 @@
                                         <div class="toc-lesson">
                                             <h5 class="lesson-name">
                                             <% if (!thisLesson.quiz) { %>
-                                                <i class="fa fa-play-circle"></i>
+                                                <i ng-hide="::course.data['<%= thisLesson.title %>']" class="fa fa-play-circle"></i>
                                                 
                                             <% } %>
                                             <% if (thisLesson.quiz) { %>
-                                                <i class="fa fa-question-circle"></i>
+                                                <i ng-hide="::course.data['<%= thisLesson.title %>']" class="fa fa-question-circle"></i>
                                                 
                                             <% } %>
+                                            <i ng-show="::course.data['<%= thisLesson.title %>']"  class="fa fa-check-circle topic-color"></i>
+                                            
                                                 
                                                 &nbsp;<%= thisLesson.name %> 
                                                 <span class="pull-right"><%= util.secondsToTime(thisLesson.duration) %></span>

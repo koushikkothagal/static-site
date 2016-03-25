@@ -14,10 +14,52 @@ var metalsmith = require('metalsmith'),
     topicPageCreator = require('./topic-page-creator'),
     lessonProcessor = require('./lesson-processor'),
     SiteData = require('./data'),
-    _ = require('lodash')
+    _ = require('lodash'),
+    compress = require('metalsmith-gzip'),
+    uglify = require('metalsmith-uglify')
+
     ;
 
 var siteData = new SiteData();
+
+var scriptsBuild = metalsmith(__dirname)
+.source('./scripts')
+.use(uglify({
+  concat: 'app.js',
+  order: ['index.module.js', 'components/**', '**/**'],
+  compress: false,
+  mangle: false,
+  "mangle-props": false
+}))
+.destination('./build')
+.build(function(err) {
+    if (err) {
+        console.log(err);
+    }
+    else {
+        console.log('Script build complete!');
+    }
+});
+
+// var stylesBuild  = metalsmith(__dirname)
+// .source('./styles')
+// .use(sass({
+//         outputStyle: "expanded"
+//     }))
+//  .use(uglify({
+//   concat: 'app.css'
+//   
+// }))
+// .destination('./build')
+// .build(function(err) {
+//     if (err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log('Script build complete!');
+//     }
+// });   
+
 var siteBuild = metalsmith(__dirname)
     .metadata({
         site: {
@@ -96,7 +138,7 @@ var siteBuild = metalsmith(__dirname)
         print: function(o) {
             console.log('in print');
             if (o) {
-                        
+
                         o.forEach(function(obj) { console.log(obj.lessonnumber + ' ' + obj.title)});
                     }
         }
@@ -105,6 +147,7 @@ var siteBuild = metalsmith(__dirname)
         outputStyle: "expanded"
     }))
     .use(autoprefixer())
+    // .use(compress({overwrite: true}))
     .use(serve({
         port: 8080,
         verbose: true
