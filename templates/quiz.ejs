@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <%- include partials/head.ejs %>
+</head>
+<% var thisCourse = s.courseMap[courseCode] %>
+<% var thisTopic = s.topicMap[thisCourse.topic] %>
+<body ng-app="javabrains">
+    
+        <div class="<%= thisCourse.topic %>" ng-controller="LessonController as lesson" ng-init="lesson.init('<%= courseCode %>', '<%= title %>')">
+            <div class="container resize-offset">
+                <div class="row">
+                    <% var prevUrl = '/courses/' + thisCourse.code %>
+                    <% var prevName = thisCourse.name %>
+                    <%- include partials/navbar.ejs %>
+                </div>
+            </div>
+            <div class="container-fluid topic-bg" style="margin-top: -25px">
+                <div id="lesson-nav" class="container">
+                    <% util.sort(unit, 'lessonnumber') %>
+                    <% for(var i=0; i<unit.length; i++) {%>
+                        <% var lesson = unit[i] %>
+                        
+                        <% var bigAndFaded = 'fa-2x faded' %>
+                        <% var playOrQuestionIcon = lesson.quiz ? 'fa-question-circle' : 'fa-play-circle' %>
+                    <!-- ngRepeat: alesson in lesson.unit.lessons -->
+                    <div>
+                    <span class="fa-stack">
+                        <% if (lesson.path === path) { %>
+                        <% bigAndFaded = '' %>
+                        <i class="fa fa-stack-2x fa-circle-thin" style="color: rgb(255, 255, 255);"></i>
+                        <% } %>
+                        
+                        
+                            
+                        
+                    <a class="fa fa-stack-1x <%= bigAndFaded %> clickable" 
+                        ng-class=" lesson.data['<%= lesson.title %>'] ? 'fa-check-circle' : '<%= playOrQuestionIcon %>' "
+                        
+                        href="<%= lesson.path %>" 
+                        style="color: #FFF;text-decoration: none;" 
+                        popover="<%= lesson.description %>" 
+                        popover-title="<%= i+1 %>. <%= lesson.name %>" 
+                        popover-trigger="mouseenter" 
+                        popover-placement="bottom" 
+                        type="button"></a>
+                     </span>
+                     </div>
+                     <% } %>
+                    <!-- end ngRepeat: alesson in lesson.unit.lessons -->
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="card" style="margin-left: -15px; margin-right: -15px;margin-bottom: 10px;height: 132px;">
+                    <div class="container full-height" style="padding: 15px 25px;width:90%;">
+                        <div class="row head-row full-height">
+                            <div class="col-md-8 border-right full-height">
+                                
+                                <h3><span class="slNo topic-color"><%= unitnumber %>.<%= lessonnumber %></span> <span class="lesson-title"><%= name %></span></h3>
+                                <p><%= description %></p>
+                            </div>
+                            <div class="col-md-4 padded">
+                                <div ng-if="!lesson.user.getCurrentUser()" class="ng-scope">
+                                    <p>Your progress is not being saved.</p>
+                                    <p><a href="#" ng-click="lesson.openSignupModal()">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           
+            
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+  <div ng-controller="QuizController as quiz">
+        
+   <quiz content="quiz.quizContent" next-permalink-name="quiz.next" course-code="'<%= courseCode %>'"></quiz>
+        
+  </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+
+    <%- include partials/scripts.ejs %>
+    <script>
+    (function() {
+  'use strict';
+
+  angular
+    .module('javabrains')
+    .service('QuizData', function() {
+        this.data = <%- JSON.stringify(quizContent) %>;    
+        this.lessonName = '<%= title %>';
+    });
+})();    
+        
+    </script>
+        
+</body>
+
+</html>

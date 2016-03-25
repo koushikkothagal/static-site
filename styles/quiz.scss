@@ -11,6 +11,7 @@
     margin: auto;
     ol {
         list-style: none;
+        max-height: 25px;
     }
     label.combo::before {
       width: 18px; // Radios for quiz options look narrower by default. Setting it to slightly longer width
@@ -131,6 +132,7 @@
     width: 100%;
     max-width: 100%;
     padding: 30px;
+    max-height: 40%;
     // color: #FFF;
 }
 

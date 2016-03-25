@@ -34,7 +34,9 @@
                         
                             
                         
-                    <a class="fa fa-stack-1x <%= bigAndFaded %> clickable <%= playOrQuestionIcon %>" 
+                    <a class="fa fa-stack-1x <%= bigAndFaded %> clickable" 
+                        ng-class=" lesson.data['<%= lesson.title %>'] ? 'fa-check-circle' : '<%= playOrQuestionIcon %>' "
+                        
                         href="<%= lesson.path %>" 
                         style="color: #FFF;text-decoration: none;" 
                         popover="<%= lesson.description %>" 
@@ -87,11 +89,13 @@
             </div>
             
             <div>
+                
                 <div class="embed-container shadow" style="max-width: 1320px;margin: auto;margin-bottom: 40px;">
                     <iframe src="//www.youtube.com/embed/<%= youtube %>?rel=0&amp;showinfo=0&amp;fs=1&amp;theme=light&amp;modestbranding=1"
                     id="youtube-player" allowfullscreen="" frameborder="0"></iframe>
                     <!-- TODO: Image https://i.ytimg.com/vi/cokoHTs3a4k/maxresdefault.jpg -->
                 </div>
+                
                 <div class="container-fluid">
                     <div class="container">
                         <div class="col-md-8 notes padded">

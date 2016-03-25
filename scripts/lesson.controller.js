@@ -12,7 +12,8 @@
       vm.init = function(courseCode, lessonName) {
         UserData.getAndMarkLessonsViewed(courseCode, lessonName)
         .then(function (res) {
-            console.log(res);      
+            console.log(res);
+            vm.data = res;      
         });
       };
         
